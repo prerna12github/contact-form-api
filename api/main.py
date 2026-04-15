@@ -28,7 +28,7 @@ def root():
 
 @app.post("/send-message")
 async def submit_contact(form:ContactForm):
-     text = f"New Message!\n Name:{form.name}\n Email:{form.email}\n Message:{form.message}"
+     text = f"New Message!\n Name: {form.name}\n Email: {form.email}\n Message: {form.message}"
      async with httpx.AsyncClient() as client:
        try:
          response = await client.post(f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage", json={"chat_id":CHAT_ID,"text":text})  
