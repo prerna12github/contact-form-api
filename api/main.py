@@ -13,7 +13,7 @@ CHAT_ID = os.getenv("CHAT_ID")
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173","https://personal-portfolio-one-phi-85.vercel.app/"], 
+    allow_origins=["http://localhost:5173","https://personal-portfolio-one-phi-85.vercel.app"], 
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -21,6 +21,10 @@ class ContactForm(BaseModel):
      name:str
      email:str
      message:str
+
+@app.get("/")
+def root():
+    return {"status": "API working"}     
 
 @app.post("/send-message")
 async def submit_contact(form:ContactForm):
