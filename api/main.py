@@ -13,7 +13,7 @@ CHAT_ID = os.getenv("CHAT_ID")
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], 
+    allow_origins=["http://localhost:5173","https://personal-portfolio-one-phi-85.vercel.app/"], 
     allow_methods=["*"],
     allow_headers=["*"],
 )
